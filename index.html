@@ -12,13 +12,22 @@
     <div id="menu" class="menu active">
         <h1>🎮 Game Arcade</h1>
 
-        <button class="game-btn" data-game="tictactoe">🎯 Tic Tac Toe</button>
-        <button class="game-btn" data-game="rps">✊ Rock Paper Scissors</button>
+        <button class="game-btn tictactoe">🎯 Tic Tac Toe</button>
+        <button class="game-btn rps">✊ Rock Paper Scissors</button>
         <button class="game-btn disabled">❓ More Games Soon</button>
     </div>
 
     <div id="game-container"></div>
 
+    <div id="notification-modal" class="notification-modal hidden">
+        <div class="notification-box">
+            <p id="notification-message"></p>
+            <button onclick="closeNotification()" class="notification-btn">OK</button>
+        </div>
+    </div>
+
+    <script src="games/tictactoe.js"></script>
+    <script src="games/rockpaperscissors.js"></script>
     <script src="main.js"></script>
 </body>
 
