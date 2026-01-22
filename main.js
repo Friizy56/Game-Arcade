@@ -26,9 +26,9 @@ function loadGame(game) {
     document.getElementById("menu").classList.remove("active");
     
     if (game === "tictactoe") {
-        renderTicTacToe();
+        renderTicTacToe(); //this function is in games/tictactoe.js (global function)
     } else if (game === "rps") {
-        renderRPS();
+        renderRPS(); // this function is in games/rockpaperscissors.js (global function)
     }
 }
 
@@ -38,7 +38,7 @@ function backToMenu() {
     document.getElementById("game-container").innerHTML = "";
 }
 
-function showNotification(message) {
+function showNotification(message) { // message pops in tictactoe showing which user wins
     const modal = document.getElementById("notification-modal");
     const messageEl = document.getElementById("notification-message");
     messageEl.textContent = message;
