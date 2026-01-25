@@ -6,6 +6,8 @@ A simple browser-based game collection featuring classic games for entertainment
 
 - **Tic Tac Toe** - Play against the computer
 - **Rock Paper Scissors** - Compete in a classic battle of strategy
+- **Guess the Number** - Test your guessing skills in this number prediction game
+- **Reaction Test** - Challenge your reflexes and measure your reaction time
 - More games coming soon!
 ## Features
 
