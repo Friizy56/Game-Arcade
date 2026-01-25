@@ -21,6 +21,23 @@ function renderRPS() {
     `;
 }
 
+function loadRPSScores() {
+    const savedScores = localStorage.getItem('rpsScores');
+    if (savedScores) {
+        const scores = JSON.parse(savedScores);
+        appState.rps.userScore = scores.userScore;
+        appState.rps.computerScore = scores.computerScore;
+    }
+}
+
+function saveRPSScores() {
+    const scores = {
+        userScore: appState.rps.userScore,
+        computerScore: appState.rps.computerScore
+    };
+    localStorage.setItem('rpsScores', JSON.stringify(scores));
+}
+
 function playRPS(userChoice) {
     const choices = ['rock', 'paper', 'scissors'];
     const computerChoice = choices[Math.floor(Math.random() * 3)];
@@ -41,6 +58,7 @@ function playRPS(userChoice) {
     }
     
     appState.rps.result = result;
+    saveRPSScores();
     renderRPS();
 }
 
@@ -48,5 +66,6 @@ function resetRPS() {
     appState.rps.userScore = 0;
     appState.rps.computerScore = 0;
     appState.rps.result = '';
+    saveRPSScores();
     renderRPS();
 }

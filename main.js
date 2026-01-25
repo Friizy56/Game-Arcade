@@ -46,6 +46,7 @@ function loadGame(game) {
     if (game === "tictactoe") {
         renderTicTacToe(); //this function is in games/tictactoe.js (global function)
     } else if (game === "rps") {
+        loadRPSScores(); // load scores from local storage
         renderRPS(); // this function is in games/rockpaperscissors.js (global function)
     } else if (game === "reaction") {
         renderReactionTest(); // this function is in games/reactiontest.js (global function)
