@@ -9,13 +9,31 @@ let appState = {
         userScore: 0,
         computerScore: 0,
         result: ''
+    },
+    reaction: {
+        lastReactionTime: 0
+    },
+    guessNumber: {
+        secretNumber: 0,
+        triesLeft: 5,
+        guesses: [],
+        gameOver: false
     }
 };
 
 document.querySelectorAll(".game-btn").forEach(btn => {
     btn.addEventListener("click", () => {
         if (btn.classList.contains("disabled")) return;
-        const game = btn.classList.contains("tictactoe") ? "tictactoe" : btn.classList.contains("rps") ? "rps" : null;
+        let game = null;
+        if (btn.classList.contains("tictactoe")) {
+            game = "tictactoe";
+        } else if (btn.classList.contains("rps")) {
+            game = "rps";
+        } else if (btn.classList.contains("reaction")) {
+            game = "reaction";
+        } else if (btn.classList.contains("guess-number")) {
+            game = "guess-number";
+        }
         if (!game) return;
         loadGame(game);
     });
@@ -29,6 +47,10 @@ function loadGame(game) {
         renderTicTacToe(); //this function is in games/tictactoe.js (global function)
     } else if (game === "rps") {
         renderRPS(); // this function is in games/rockpaperscissors.js (global function)
+    } else if (game === "reaction") {
+        renderReactionTest(); // this function is in games/reactiontest.js (global function)
+    } else if (game === "guess-number") {
+        renderGuessTheNumber(); // this function is in games/guessthenumber.js (global function)
     }
 }
 
